@@ -22,3 +22,17 @@ function calculateTaxes(grossPay) {
     return grossPay*(1-taxRate);
 }
 
+function processPayroll(employee) {
+    let basePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
+    let overtimePay = calculateOvertimePay(employee.hourlyRate, employee.hoursWorked);
+    let grossPay = basePay + overtimePay;
+    let netPay = calculateTaxes(grossPay);
+    return {
+        name: employee.name,
+        basePay,
+        overtimePay,
+        grossPay,
+        netPay
+    };  
+
+}
