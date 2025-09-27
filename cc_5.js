@@ -8,6 +8,11 @@ let employees = [
 ];
 
 function calculateBasePay(rate, hours) {
-    let baseHours = (0, hours, 40);
+    let baseHours = Math.max(0, Math.min(hours, 40));
     return rate*baseHours;
+}
+
+function calculateOvertimePay(rate, hours) {
+    let overtimeWorked = Math.max(0, hours - 40);
+    return overtimeWorked*rate*1.5;
 }
