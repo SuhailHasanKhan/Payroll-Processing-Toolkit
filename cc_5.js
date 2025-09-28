@@ -29,10 +29,24 @@ function processPayroll(employee) {
     let netPay = calculateTaxes(grossPay);
     return {
         name: employee.name,
-        basePay,
-        overtimePay,
-        grossPay,
-        netPay
+        basePay: basePay,
+        overtimePay: overtimePay,
+        grossPay: grossPay,
+        netPay: netPay
     };  
 
+}
+
+
+let payrollObject = employees.map(processPayroll);
+
+for (let p of payrollObject) {
+    console.log(
+        `Name: ${p.name}
+        Base Pay: $${p.basePay}
+        Overtime Pay: $${p.overtimePay}
+        Gross Pay: $${p.grossPay}
+        Net Pay: $${p.netPay}`
+
+    );
 }
