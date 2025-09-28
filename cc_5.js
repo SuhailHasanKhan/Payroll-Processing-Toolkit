@@ -37,7 +37,7 @@ function processPayroll(employee) {
 
 }
 
-
+console.log('--------- EMPLOYEE PAYROLL ---------')
 let payrollObject = employees.map(processPayroll);
 
 for (let p of payrollObject) {
